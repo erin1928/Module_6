@@ -30,7 +30,15 @@ d[1:10, ]
 
 ```
 ## Extract data from the 20 largest countries into a new variable. What are the median area and population size of these countries?
-```{r median area, include=FALSE}
+## CANT DO THIS ONE
+```{r 20 largest countries, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
+```
+
+Extract data from all countries beginning with the letters “A” through “F”. What are the mean area and population size of these countries?
+```{r A-F, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+new <- d[grep("^[A-F]", d$country), ]
+summary(new)
 ```
