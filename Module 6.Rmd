@@ -47,3 +47,37 @@ mean(new$population, na.rm = TRUE)
 mean(new$area, na.rm = TRUE)
 
 ```
+
+## CHALLENGE 2
+```{r A-F, include=FALSE}
+par(mfrow = c(2, 3))
+boxplot(d$population)
+boxplot(log(d$population))
+boxplot(d$area)
+boxplot(log(d$area))
+barplot(d$population)
+barplot(d$area)
+```
+
+## CHALLENGE 3
+```{r A-F, include=FALSE}
+par(mfrow = c(1, 2))  # gives us two panels
+attach(d)
+hist(log(population), freq = FALSE, col = "red", main = "Plot 1", xlab = "log(population size)",
+    ylab = "density", ylim = c(0, 0.2))
+hist(log(area), freq = FALSE, col = "red", main = "Plot 2", xlab = "log(area)",
+    ylab = "density", ylim = c(0, 0.2))
+
+```
+# creates a histogram
+
+## CHALLENGE 3
+```{r A-F, include=FALSE}
+par(mfrow = c(1, 1))  # set up one panel and redraw the log(population) histogram
+hist(log(population), freq = FALSE, col = "white", main = "My Plot with Mean and Density",
++      xlab = "log(population size)", ylab = "density", ylim = c(0, 0.2))
+abline(v = mean(log(population), na.rm = TRUE), col = "blue")
+lines(density(log(population), na.rm = TRUE), col = "green")
+
+```
+# creates a bar chart
