@@ -1,0 +1,18 @@
+---
+title: "Module 6"
+author: "Erin Anderson"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Load the Country-Data-2016 dataset into a data frame variable, d, and summarize the variables in that data frame. You can load the file any way you want, e.g., load from a local file, or you can access the data straight from GitHub, as in the code below.
+```{r Country data 2016, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(curl)
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/Country-Data-2016.csv")
+d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
+head(d)
+```
