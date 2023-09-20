@@ -8,6 +8,8 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+## CHALLENGE 1
+
 ## Load the Country-Data-2016 dataset into a data frame variable, d, and summarize the variables in that data frame. You can load the file any way you want, e.g., load from a local file, or you can access the data straight from GitHub, as in the code below.
 ```{r Country data 2016, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -41,4 +43,7 @@ Extract data from all countries beginning with the letters “A” through “F�
 knitr::opts_chunk$set(echo = TRUE)
 new <- d[grep("^[A-F]", d$country), ]
 summary(new)
+mean(new$population, na.rm = TRUE)
+mean(new$area, na.rm = TRUE)
+
 ```
