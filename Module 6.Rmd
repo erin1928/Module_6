@@ -20,11 +20,17 @@ names(d)
 ```
 ## What are the median area and population size of all countries in the dataset?
 ## Create a new pop_density variable in your data frame which is population / area
+## What are the 10 most dense countries? The 10 least dense?
 ```{r median area, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-median(610952, na.rm = FALSE)
+summary(d$area)
 pop_density <- d$population/d$area
 d <- d[order(pop_density), ]
 d[1:10, ]
+
+```
+## Extract data from the 20 largest countries into a new variable. What are the median area and population size of these countries?
+```{r median area, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 
 ```
