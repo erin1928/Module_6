@@ -15,4 +15,16 @@ library(curl)
 f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/Country-Data-2016.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
+summary(d)
+names(d)
+```
+## What are the median area and population size of all countries in the dataset?
+## Create a new pop_density variable in your data frame which is population / area
+```{r median area, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+median(610952, na.rm = FALSE)
+pop_density <- d$population/d$area
+d <- d[order(pop_density), ]
+d[1:10, ]
+
 ```
