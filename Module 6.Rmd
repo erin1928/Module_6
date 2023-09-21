@@ -89,7 +89,6 @@ sort(table(d$govt_form), decreasing = TRUE)
 
 ## CHALLENGE 5
 ```{r box plots, include=FALSE}
-sort(table(d$govt_form), decreasing = TRUE)
 boxplot(log(Body_mass_female_mean) ~ Family, d)
 library(ggplot2)
 p <- ggplot(data = d, aes(x = Family, y = log(Body_mass_female_mean)))  #define the variables
@@ -100,7 +99,6 @@ p  #show me the graph
 ```
 ## CHALLENGE 6
 ```{r scatter plots, include=FALSE}
-sort(table(d$govt_form), decreasing = TRUE)
 attach(d)
 par(mfrow = c(1, 2))
 plot(x = Body_mass_female_mean, y = Brain_Size_Female_Mean)
@@ -119,9 +117,20 @@ p
 ```
 ## CHALLENGE 7
 ```{r bivariate scatterplot, include=FALSE}
-sort(table(d$govt_form), decreasing = TRUE)
 p <- ggplot(data = d, aes(x = log(Body_mass_female_mean), y = log(MaxLongevity_m)))
 p <- p + geom_point()
 p <- p + geom_smooth(method = "lm")
 p
+```
+
+##  CHALLENGE 8
+```{r tables, include=FALSE}
+s <- d %>%
+    mutate(Binomial = paste(Genus, Species, sep = " ")) %>%
+    select(Binomial, Body_mass_female_mean, Body_mass_male_mean, Mass_Dimorphism) %>%
+    group_by(Binomial) %>%
+    summarise(avgF = mean(Body_mass_female_mean, na.rm = TRUE), avgM = mean(Body_mass_male_mean,
+        na.rm = TRUE), avgBMD = mean(Mass_Dimorphism, na.rm = TRUE))
+s
+
 ```
