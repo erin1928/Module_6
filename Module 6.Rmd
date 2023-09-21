@@ -83,6 +83,45 @@ lines(density(log(population), na.rm = TRUE), col = "green")
 # creates a bar chart
 
 ## CHALLENGE 4
-```{r A-F, include=FALSE}
+```{r tables, include=FALSE}
 sort(table(d$govt_form), decreasing = TRUE)
+```
+
+## CHALLENGE 5
+```{r box plots, include=FALSE}
+sort(table(d$govt_form), decreasing = TRUE)
+boxplot(log(Body_mass_female_mean) ~ Family, d)
+library(ggplot2)
+p <- ggplot(data = d, aes(x = Family, y = log(Body_mass_female_mean)))  #define the variables
+p <- p + geom_boxplot()  #graph them in a boxplot
+p <- p + theme(axis.text.x = element_text(angle = 90))  #put x-axis names at 90deg
+p <- p + ylab("log(Female Body Mass)")  #rename y-axis title
+p  #show me the graph
+```
+## CHALLENGE 6
+```{r scatter plots, include=FALSE}
+sort(table(d$govt_form), decreasing = TRUE)
+attach(d)
+par(mfrow = c(1, 2))
+plot(x = Body_mass_female_mean, y = Brain_Size_Female_Mean)
+plot(x = log(Body_mass_female_mean), y = log(Brain_Size_Female_Mean))
+p <- ggplot(data = d, aes(x = log(Body_mass_female_mean), y = log(Brain_Size_Female_Mean),
+    color = factor(Family)))  # first, we build a plot object and color points by Family
+p <- p + xlab("log(Female Body Mass)") + ylab("log(Female Brain Size)")  # then we modify the axis labels
+p <- p + geom_point()  # then we make a scatterplot
+p <- p + theme(legend.position = "bottom", legend.title = element_blank())  # then we modify the legend
+p  # and, finally, we plot the object
+p <- p + facet_wrap(~Family, ncol = 4)
+p <- p + theme(legend.position = "none")
+p
+p <- p + geom_smooth(method = "lm", fullrange = TRUE)
+p
+```
+## CHALLENGE 7
+```{r bivariate scatterplot, include=FALSE}
+sort(table(d$govt_form), decreasing = TRUE)
+p <- ggplot(data = d, aes(x = log(Body_mass_female_mean), y = log(MaxLongevity_m)))
+p <- p + geom_point()
+p <- p + geom_smooth(method = "lm")
+p
 ```
