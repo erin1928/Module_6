@@ -26,6 +26,7 @@ names(d)
 ```{r median area, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 summary(d$area)
+summary(d$population)
 pop_density <- d$population/d$area
 d <- d[order(pop_density), ]
 d[1:10, ]
