@@ -43,6 +43,7 @@ summary(largest_area$area)
 ```
 
 Extract data from all countries beginning with the letters “A” through “F”. What are the mean area and population size of these countries?
+
 ```{r A-F, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 new <- d[grep("^[A-F]", d$country), ]
