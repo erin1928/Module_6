@@ -81,3 +81,8 @@ lines(density(log(population), na.rm = TRUE), col = "green")
 
 ```
 # creates a bar chart
+
+## CHALLENGE 4
+```{r A-F, include=FALSE}
+sort(table(d$govt_form), decreasing = TRUE)
+```
